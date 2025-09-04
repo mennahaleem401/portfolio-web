@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Menna Abdelhaleem - Full-Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -13,116 +13,47 @@
             font-family: 'Inter', sans-serif;
         }
         
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        
-        .animate-slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-            opacity: 0;
-        }
-        
-        .animate-scale-in {
-            animation: scaleIn 0.6s ease-out forwards;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes scaleIn {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
+        .card-hover {
             transition: all 0.3s ease;
         }
         
-        .project-card:hover {
-            transform: scale(1.05);
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #3B82F6;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #E5E7EB;
+        .skill-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            animation: fillBar 2s ease-in-out;
         }
         
-        .bg-gradient-animated {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+        @keyframes fillBar {
+            from { width: 0%; }
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: blink 1s infinite;
         }
         
-        .intersection-observer {
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+        
+        .section-fade {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            transition: all 0.6s ease;
         }
         
-        .intersection-observer.visible {
+        .section-fade.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -130,101 +61,229 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-gradient-to-r from-purple-900/95 to-indigo-900/95 backdrop-blur-md z-50 shadow-lg border-b border-purple-500/20">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Portfolio</div>
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">Menna Abdelhaleem</div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-cyan-100 hover:text-cyan-400 transition-colors font-medium">Home</a>
-                    <a href="#about" class="text-cyan-100 hover:text-cyan-400 transition-colors font-medium">About</a>
-                    <a href="#skills" class="text-cyan-100 hover:text-cyan-400 transition-colors font-medium">Skills</a>
-                    <a href="#projects" class="text-cyan-100 hover:text-cyan-400 transition-colors font-medium">Projects</a>
-                    <a href="#contact" class="text-cyan-100 hover:text-cyan-400 transition-colors font-medium">Contact</a>
+                    <a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-purple-600 transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-purple-600 transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-600 hover:text-purple-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-purple-600">About</a>
+                <a href="#skills" class="block py-2 text-gray-600 hover:text-purple-600">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-purple-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-purple-600">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Cover Page -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-800/30 to-blue-800/30"></div>
-        <div class="max-w-6xl mx-auto px-4 z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-in-left">
-                    <div class="relative">
-                        <div class="w-80 h-80 mx-auto relative">
-                            <!-- Profile Image Placeholder -->
-                            <div class="w-full h-full bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl animate-float">
-                                <svg class="w-48 h-48 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                </svg>
-                            </div>
-                            <!-- Decorative rings -->
-                            <div class="absolute inset-0 border-4 border-cyan-300/30 rounded-full animate-pulse"></div>
-                            <div class="absolute -inset-4 border-2 border-purple-300/20 rounded-full animate-spin" style="animation-duration: 20s;"></div>
-                        </div>
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border-4 border-white/30">
+                    <!-- Replace the src below with your actual photo URL -->
+                    <img src="image.jpg"  
+                     alt="Menna Abdelhaleem Profile Picture" 
+                     class="w-full h-full object-cover rounded-full">
+
+                    <div class="w-full h-full flex items-center justify-center" style="display: none;">
+                        <i class="fas fa-user text-4xl text-white"></i>
                     </div>
                 </div>
-                <div class="text-white animate-slide-in-right">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Menna Abdelhaleem</h1>
-                    <p class="text-xl md:text-2xl mb-8 text-cyan-100">AI and ML Engineer</p>
-                    <p class="text-lg mb-8 text-gray-300 leading-relaxed">AI and Data Science enthusiast with hands-on experience in machine learning, data preprocessing, and model development. Delivering data-driven, AI-powered solutions through analytical problem-solving.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#about" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 inline-block text-center shadow-lg">
-                            Explore My Work
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Menna Abdelhaleem</h1>
+                <p class="text-xl md:text-2xl mb-2 typing-animation" id="typing-text">Full-Stack Web Developer</p>
+                <p class="text-lg opacity-90 mb-8">Python | Django | JavaScript | SQL</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <div class="flex items-center bg-white/20 px-4 py-2 rounded-full">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    <span>Egypt</span>
+                </div>
+                <div class="flex items-center bg-white/20 px-4 py-2 rounded-full">
+                    <span>
+                        <a href="https://github.com/mennahaleem401" target="_blank">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="#contact" class="border-2 border-cyan-400 text-cyan-400 px-8 py-3 rounded-full font-semibold hover:bg-cyan-400 hover:text-white transition-all duration-300 inline-block text-center">
-                            Get In Touch
-                        </a>
+
+                    </span>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-4">
+                <button onclick="scrollToSection('contact')" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Get In Touch
+                </button>
+                <button onclick="scrollToSection('projects')" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    View Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="section-fade">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Profile</h3>
+                        <p class="text-white/90 leading-relaxed mb-6">
+                            Passionate Web Developer skilled in building full-stack applications using Python, Django, HTML, CSS, JavaScript, and SQL. Completed the ITI Web Development Using Python track, gaining hands-on experience in developing responsive, database-driven applications.
+                        </p>
+                        <p class="text-white/90 leading-relaxed">
+                            Strong focus on creating efficient, user-friendly solutions that combine technology and business needs.
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white/10 p-6 rounded-lg card-hover backdrop-blur-sm">
+                            <h4 class="font-semibold text-white mb-2">
+                                <i class="fas fa-graduation-cap text-white mr-2"></i>
+                                ITI Professional Training (2024)
+                            </h4>
+                            <p class="text-white/90">Web Development Using Python</p>
+                            <p class="text-sm text-white/75 mt-2">Full-stack web development with Django, SQL, HTML, CSS, and JavaScript</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-lg card-hover backdrop-blur-sm">
+                            <h4 class="font-semibold text-white mb-2">
+                                <i class="fas fa-university text-white mr-2"></i>
+                                B.Sc. in Artificial Intelligence (2022 – Present)
+                            </h4>
+                            <p class="text-white/90">Faculty of Computers and Artificial Intelligence</p>
+                            <p class="text-sm text-white/75 mt-2">Benha University</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-cyan-400 text-2xl"></i>
-        </div>
     </section>
 
-    <!-- About Me -->
-    <section id="about" class="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 gradient-bg text-white">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="intersection-observer">
-                    <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">About Me</h2>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        I'm a passionate AI and ML Engineer with expertise in machine learning, data preprocessing, and model development. I specialize in Python, deep learning frameworks like TensorFlow and Keras, and delivering data-driven solutions.
-                    </p>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                        Currently pursuing my degree in Artificial Intelligence at Benha University, I'm dedicated to solving complex problems through analytical thinking and cutting-edge AI technologies.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white hover:from-gray-600 hover:to-gray-800 transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white hover:from-blue-500 hover:to-purple-600 transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="intersection-observer" style="animation-delay: 0.3s;">
-                    <div class="bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700 rounded-2xl p-8 text-white shadow-2xl border border-cyan-400/20">
-                        <div class="text-center">
-                            <div class="w-32 h-32 bg-gradient-to-br from-white/20 to-white/10 rounded-full mx-auto mb-6 flex items-center justify-center backdrop-blur-sm border border-white/20">
-                                <i class="fas fa-code text-4xl text-cyan-200"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-2">AI & ML Specialist</h3>
-                            <p class="text-cyan-100">Building intelligent data-driven solutions</p>
-                            <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
-                                <div class="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-                                    <div class="font-bold text-lg">5+</div>
-                                    <div class="text-cyan-200">ML Projects</div>
+            <div class="section-fade">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">Skills & Technologies</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Backend Development -->
+                    <div class="bg-white/10 p-6 rounded-lg shadow-sm card-hover backdrop-blur-sm">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-server text-3xl text-white mb-2"></i>
+                            <h3 class="text-xl font-semibold text-white">Backend Development</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">Python</span>
+                                    <span class="text-sm text-white/90">90%</span>
                                 </div>
-                                <div class="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-                                    <div class="font-bold text-lg">90%+</div>
-                                    <div class="text-cyan-200">Accuracy</div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">Django</span>
+                                    <span class="text-sm text-white/90">85%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">REST APIs</span>
+                                    <span class="text-sm text-white/90">80%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Development -->
+                    <div class="bg-white/10 p-6 rounded-lg shadow-sm card-hover backdrop-blur-sm">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-laptop-code text-3xl text-white mb-2"></i>
+                            <h3 class="text-xl font-semibold text-white">Frontend Development</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">HTML/CSS</span>
+                                    <span class="text-sm text-white/90">90%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">JavaScript</span>
+                                    <span class="text-sm text-white/90">75%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">Bootstrap</span>
+                                    <span class="text-sm text-white/90">85%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database & Tools -->
+                    <div class="bg-white/10 p-6 rounded-lg shadow-sm card-hover backdrop-blur-sm">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-database text-3xl text-white mb-2"></i>
+                            <h3 class="text-xl font-semibold text-white">Database & Tools</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">SQL</span>
+                                    <span class="text-sm text-white/90">85%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">Git/GitHub</span>
+                                    <span class="text-sm text-white/90">80%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-white/90">PostgreSQL</span>
+                                    <span class="text-sm text-white/90">75%</span>
+                                </div>
+                                <div class="bg-white/20 rounded-full h-2">
+                                    <div class="skill-bar" style="width: 75%"></div>
                                 </div>
                             </div>
                         </div>
@@ -234,177 +293,69 @@
         </div>
     </section>
 
-    <!-- Skills & Expertise -->
-    <section id="skills" class="py-20 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 gradient-bg text-white">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4 intersection-observer">Skills & Expertise</h2>
-                <p class="text-gray-300 text-lg intersection-observer" style="animation-delay: 0.2s;">Technologies and tools I work with</p>
-            </div>
-            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <div class="skill-card bg-gradient-to-br from-yellow-400 to-orange-500 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.1s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Python</h3>
-                    <p class="text-yellow-100 text-sm">Pandas, NumPy, Scikit-learn</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-cyan-400 to-blue-500 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.2s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Machine Learning</h3>
-                    <p class="text-cyan-100 text-sm">Model Training, Evaluation</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-green-400 to-emerald-600 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.3s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Deep Learning</h3>
-                    <p class="text-green-100 text-sm">TensorFlow, Keras, CNNs</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.4s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">SQL & Databases</h3>
-                    <p class="text-purple-100 text-sm">MySQL, Data Warehousing</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-orange-400 to-red-500 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.5s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Data Visualization</h3>
-                    <p class="text-orange-100 text-sm">Power BI, Matplotlib, Seaborn</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-blue-500 to-indigo-600 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.6s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Data Engineering</h3>
-                    <p class="text-blue-100 text-sm">ETL, Data Preprocessing</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-gray-600 to-gray-800 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.7s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Version Control</h3>
-                    <p class="text-gray-200 text-sm">Git, GitHub, Agile</p>
-                </div>
-                <div class="skill-card bg-gradient-to-br from-pink-500 to-rose-600 p-6 rounded-xl shadow-lg text-center intersection-observer transform hover:scale-105 transition-all duration-300" style="animation-delay: 0.8s;">
-                    <div class="text-4xl text-white mb-4">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="font-semibold text-white mb-2">Programming</h3>
-                    <p class="text-pink-100 text-sm">C++, Algorithm Design</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4 intersection-observer">Featured Projects</h2>
-                <p class="text-gray-300 text-lg intersection-observer" style="animation-delay: 0.2s;">Some of my recent work</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-2xl overflow-hidden intersection-observer border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300" style="animation-delay: 0.1s;">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20"></div>
-                        <i class="fas fa-newspaper text-white text-4xl relative z-10"></i>
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Fake News Stance Detection</h3>
-                        <p class="text-gray-300 mb-4">Deep learning model achieving 90%+ F1-score in classifying relationships between 3,000+ headline-article pairs.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30">Deep Learning</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full border border-green-400/30">NLP</span>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                <div class="project-card bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-2xl overflow-hidden intersection-observer border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300" style="animation-delay: 0.2s;">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-teal-500/20"></div>
-                        <i class="fas fa-user-tie text-white text-4xl relative z-10"></i>
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Employee Leave Prediction</h3>
-                        <p class="text-gray-300 mb-4">ML model predicting employee leave eligibility with 87% accuracy using HR records of 1,000+ instances.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-sm rounded-full border border-emerald-400/30">Scikit-learn</span>
-                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full border border-purple-400/30">HR Analytics</span>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-green-500 to-teal-600 text-white py-2 rounded-lg hover:from-green-600 hover:to-teal-700 transition-all duration-300">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                <div class="project-card bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-2xl overflow-hidden intersection-observer border border-orange-500/20 hover:border-orange-400/40 transition-all duration-300" style="animation-delay: 0.3s;">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-500/20"></div>
-                        <i class="fas fa-gem text-white text-4xl relative z-10"></i>
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Gemstone Classification</h3>
-                        <p class="text-gray-300 mb-4">CNN model using Keras achieving 92% classification accuracy across multiple gemstone categories.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full border border-cyan-400/30">CNN</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full border border-orange-400/30">Keras</span>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-2 rounded-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-900">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4 intersection-observer">Education & Certifications</h2>
-                <p class="text-gray-300 text-lg intersection-observer" style="animation-delay: 0.2s;">My learning journey</p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-600 rounded-full"></div>
-                    <div class="timeline-item relative pl-12 pb-8 intersection-observer" style="animation-delay: 0.1s;">
-                        <div class="bg-gradient-to-br from-orange-400 to-red-500 p-6 rounded-xl shadow-lg text-white border-l-4 border-orange-300">
-                            <div class="text-sm text-orange-100 font-semibold mb-1">2024</div>
-                            <h3 class="text-xl font-bold mb-2">Fundamentals of Deep Learning</h3>
-                            <p class="text-orange-100">NVIDIA certification covering neural networks, CNNs, and deep learning fundamentals.</p>
-                            <div class="mt-3 inline-block bg-white/20 px-3 py-1 rounded-full text-sm">
-                                <i class="fas fa-brain mr-2"></i>Deep Learning
+            <div class="section-fade">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white/10 rounded-lg overflow-hidden shadow-sm card-hover backdrop-blur-sm">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-globe text-2xl text-white mr-3"></i>
+                                <h3 class="text-xl font-semibold text-white">Full-Stack Django Application</h3>
+                            </div>
+                            <p class="text-white/90 mb-4">
+                                Developed a dynamic web application with user authentication, database integration, and responsive design as part of ITI final project.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">Django</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="flex items-center text-white hover:text-white/80 transition-colors">
+                                    <a href="https://github.com/mennahaleem401/Campus-Cafeteria-Full-stack-app-using-python" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                        View Code
+                                    </a>
+                                </button>
+                                <button class="flex items-center text-white hover:text-white/80 transition-colors">
+                                    <a href="https://drive.google.com/file/d/1Yde-oSGzqr45SIgGiT_rimaNrwb3PR8M/view?usp=sharing" target="_blank">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        Live Demo
+                                    </a>
+                    
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="timeline-item relative pl-12 pb-8 intersection-observer" style="animation-delay: 0.2s;">
-                        <div class="bg-gradient-to-br from-cyan-400 to-blue-500 p-6 rounded-xl shadow-lg text-white border-l-4 border-cyan-300">
-                            <div class="text-sm text-cyan-100 font-semibold mb-1">2024</div>
-                            <h3 class="text-xl font-bold mb-2">Advanced SQL Certification</h3>
-                            <p class="text-cyan-100">HackerRank certification demonstrating advanced SQL skills and database optimization.</p>
-                            <div class="mt-3 inline-block bg-white/20 px-3 py-1 rounded-full text-sm">
-                                <i class="fas fa-database mr-2"></i>Database Management
+
+                    <!-- Project 2 -->
+                    <div class="bg-white/10 rounded-lg overflow-hidden shadow-sm card-hover backdrop-blur-sm">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-user text-2xl text-white mr-3"></i>
+                                <h3 class="text-xl font-semibold text-white">Portfolio Website</h3>
                             </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item relative pl-12 pb-8 intersection-observer" style="animation-delay: 0.3s;">
-                        <div class="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-xl shadow-lg text-white border-l-4 border-purple-300">
-                            <div class="text-sm text-purple-100 font-semibold mb-1">2022 – Present</div>
-                            <h3 class="text-xl font-bold mb-2">Bachelor of Artificial Intelligence</h3>
-                            <p class="text-purple-100">Benha University, Faculty of Computers and Artificial Intelligence - GPA: 3.408/4.0 (Very Good)</p>
-                            <div class="mt-3 inline-block bg-white/20 px-3 py-1 rounded-full text-sm">
-                                <i class="fas fa-graduation-cap mr-2"></i>Artificial Intelligence
+                            <p class="text-white/90 mb-4">
+                                Designed and deployed a personal portfolio using HTML, CSS, Tailwind, and GitHub Pages to showcase projects and skills.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">HTML</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">CSS</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">Tailwind</span>
+                                <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">GitHub Pages</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="flex items-center text-white hover:text-white/80 transition-colors">
+                                   <a href="https://github.com/mennahaleem401/My-Portfolio" target="_blank">
+                                         <i class="fab fa-github mr-2"></i>
+                                         View Code
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -413,160 +364,72 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4 intersection-observer">What Clients Say</h2>
-                <p class="text-gray-300 text-lg intersection-observer" style="animation-delay: 0.2s;">Feedback from amazing people I've worked with</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-xl intersection-observer border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300" style="animation-delay: 0.1s;">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold mr-4 shadow-lg">
-                            S
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Sarah Johnson</h4>
-                            <p class="text-blue-300 text-sm">CEO, TechStart</p>
-                        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="section-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Let's Work Together</h2>
+                <p class="text-xl mb-12 opacity-90">
+                    Ready to bring your ideas to life? Let's discuss your next project!
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fas fa-envelope text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Email</h3>
+                        <a href="mailto:yourname@email.com">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fab fa-github text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">GitHub</h3>
+                        <a href="https://github.com/mennahaleem401" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GITHUB Profile
+                        </a>
                     </div>
-                    <p class="text-gray-300 italic">"Alex delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise are outstanding."</p>
-                </div>
-                <div class="testimonial-card bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-xl intersection-observer border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300" style="animation-delay: 0.2s;">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4 shadow-lg">
-                            M
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Mike Chen</h4>
-                            <p class="text-emerald-300 text-sm">CTO, DataFlow</p>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">"Working with Alex was a pleasure. He transformed our complex requirements into a beautiful, functional dashboard that our team loves using."</p>
-                </div>
-                <div class="testimonial-card bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-xl intersection-observer border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300" style="animation-delay: 0.3s;">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4 shadow-lg">
-                            L
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Lisa Rodriguez</h4>
-                            <p class="text-purple-300 text-sm">Product Manager, InnovateCorp</p>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">"Alex's mobile app development skills are top-notch. He delivered a polished, user-friendly app that our customers absolutely love."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 intersection-observer">Let's Work Together</h2>
-                <p class="text-gray-300 text-lg intersection-observer" style="animation-delay: 0.2s;">Ready to bring your ideas to life? Get in touch!</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="intersection-observer" style="animation-delay: 0.1s;">
-                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-blue-400 text-xl mr-4"></i>
-                            <span>mennahaleem401@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-blue-400 text-xl mr-4"></i>
-                            <span>(+20) 1027998085</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-blue-400 text-xl mr-4"></i>
-                            <span>Maadi, Egypt</span>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-lg font-semibold mb-4">Connect with me</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                        </div>
+                    <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fas fa-map-marker-alt text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Location</h3>
+                        <p class="opacity-90">Egypt</p>
                     </div>
                 </div>
-                <div class="intersection-observer" style="animation-delay: 0.3s;">
-                    <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-                        <h3 class="text-2xl font-bold mb-6">Quick Contact</h3>
-                        <form class="space-y-4">
-                            <input type="text" placeholder="Your Name" class="w-full p-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
-                            <input type="email" placeholder="Your Email" class="w-full p-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
-                            <textarea placeholder="Your Message" rows="4" class="w-full p-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors resize-none"></textarea>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-16 intersection-observer" style="animation-delay: 0.5s;">
-                <div class="inline-block bg-white p-4 rounded-xl">
-                    <div class="w-32 h-32 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-qrcode text-4xl text-gray-600"></i>
-                    </div>
-                    <p class="text-gray-800 text-sm mt-2">Scan to connect</p>
+                
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-semibold mb-6">Send a Message</h3>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+                        </div>
+                        <input type="text" placeholder="Subject" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"></textarea>
+                        <button type="submit" class="w-full bg-white text-purple-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                    <p class="text-sm opacity-75 mt-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Demo form - Messages are not actually sent
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-900 via-purple-900 to-indigo-900 text-white py-8 border-t border-purple-500/20">
+    <footer class="bg-gray-900 text-white py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-gray-300">&copy; 2024 <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-semibold">Menna Abdelhaleem</span>. All rights reserved.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+            <p class="mb-4">&copy; 2024 Menna Abdelhaleem. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
                     <i class="fab fa-github text-xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                    <i class="fab fa-twitter text-xl"></i>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
                     <i class="fas fa-envelope text-xl"></i>
                 </a>
             </div>
@@ -574,21 +437,65 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click listeners to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
             });
         });
 
-        // Intersection Observer for animations
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = ['Full-Stack Web Developer', 'Python Developer', 'Django Expert', 'Problem Solver'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        // Start typing animation
+        setTimeout(typeWriter, 1000);
+
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -602,62 +509,31 @@
             });
         }, observerOptions);
 
-        // Observe all elements with intersection-observer class
-        document.querySelectorAll('.intersection-observer').forEach(el => {
-            observer.observe(el);
+        // Observe all sections with fade animation
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
         });
 
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[placeholder="Your Name"]').value;
-            const email = this.querySelector('input[placeholder="Your Email"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Simulate form submission
-            const button = this.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'Sending...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your message! I\'ll get back to you soon.');
-                this.reset();
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 2000);
+            alert('Thank you for your message! This is a demo form.');
         });
 
-        // Add active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
+        // Skill bar animations
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-blue-600');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-blue-600');
-                }
-            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            bar.style.animationPlayState = 'paused';
+            skillObserver.observe(bar);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97643bad35692438',t:'MTc1NjM4ODU1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a065b125a42120',t:'MTc1NzAxOTQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
